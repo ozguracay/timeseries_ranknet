@@ -26,7 +26,7 @@ encoder_states_r = [state_h_r, state_c_r]
 decoder_outputs_r, _, _ = lstm_decoder(right_input, initial_state=encoder_states_r)
 flatted_decoder_r = lstm_flatten(decoder_outputs_r)
 
-# customer left - right
+# left - right
 diff = Subtract()([flatted_decoder_l, flatted_decoder_r])
 
 outputs = Dense(1, activation="sigmoid")(diff)
